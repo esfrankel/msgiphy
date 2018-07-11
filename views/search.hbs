@@ -1,8 +1,11 @@
-<form action="/search" method="post">
-  <input type="text" name="giphy-query" placeholder="Search Giphy..." />
-  <input type="submit" value="Search" />
-</form>
+
 
 {{#if searchResultUrl}}
-  <img src="{{searchResultUrl}}" />
+  <div class="row">
+    <div class="col-xl">
+      <div id="search-result">
+        <img src="{{searchResultUrl}}" />
+      </div>
+    </div>
+  </div>
 {{/if}}

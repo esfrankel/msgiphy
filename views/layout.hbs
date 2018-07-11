@@ -10,6 +10,14 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body class="container-fluid text-center">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/search">Make School Giphy Search</a>
+      <form class="form-inline my-2 my-lg-0" action="/search" method="post">
+        <input type="text" name="giphy-query" placeholder="Search Giphy..." />
+        <input type="submit" value="Search" />
+      </form>
+    </nav>
+
     <main class="container-fluid text-center">
       {{{body}}}
     </main>
