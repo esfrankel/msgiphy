@@ -2,3 +2,7 @@
   <input type="text" name="giphy-query" placeholder="Search Giphy..." />
   <input type="submit" value="Search" />
 </form>
+
+{{#if searchResultUrl}}
+  <img src="{{searchResultUrl}}" />
+{{/if}}

@@ -19,12 +19,23 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/search', function(req, res, next) {
-  res.render(search);
+  res.render('search');
 });
 
 router.post('/search', function(req, res, next) {
-  console.log(req.body);
-  res.status(204).send({});
+  const query = req.body['giphy-query'];
+  const url = `http://api.giphy.com/v1/gifs/search?api_key=2WPXFgfmjh0s7kMycJ7HJtoBdQq7ed2F&q=${query}`;
+
+  request.get(url, (err, response, body) => {
+    if(err) { console.error(err); }
+
+    body = JSON.parse(body);
+
+    const randomResult = body.data[Math.floor(Math.random() * body.data.length)];
+    const searchResultUrl = randomResult.images.fixed_height.url;
+
+    res.render('search', { searchResultUrl: searchResultUrl });
+  });
 });
 
 module.exports = router;
