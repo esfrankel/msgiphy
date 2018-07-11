@@ -18,4 +18,13 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/search', function(req, res, next) {
+  res.render(search);
+});
+
+router.post('/search', function(req, res, next) {
+  console.log(req.body);
+  res.status(204).send({});
+});
+
 module.exports = router;
